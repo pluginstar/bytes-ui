@@ -53,7 +53,7 @@ export const docsNavigation: NavSection[] = [
 			{ title: "Meter", href: "/docs/components/meter" },
 			{ title: "Navigation Menu", href: "/docs/components/navigation-menu" },
 			{ title: "Pagination", href: "/docs/components/pagination" },
-			{ title: "Pin Input", href: "/docs/components/pin-input" },
+			{ title: "PIN Input", href: "/docs/components/pin-input" },
 			{ title: "Popover", href: "/docs/components/popover" },
 			{ title: "Progress", href: "/docs/components/progress" },
 			{ title: "Radio Group", href: "/docs/components/radio-group" },

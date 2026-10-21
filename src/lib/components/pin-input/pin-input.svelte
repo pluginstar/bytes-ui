@@ -21,15 +21,15 @@
 	{...restProps}
 >
 	{#snippet children({ cells })}
-		<div class="flex items-center">
+		<div class="flex items-center rounded-input bg-background shadow-mini">
 			{#each cells as cell, i (i)}
 				<PinInputPrimitive.Cell
 					{cell}
 					class={cn(
-						"relative flex size-12 items-center justify-center -ml-px first:ml-0 border border-border-input bg-background text-base font-semibold shadow-mini transition-all outline-hidden select-none",
+						"relative flex size-12 items-center justify-center -ml-px first:ml-0 border border-border-input bg-background text-base font-semibold transition-all outline-hidden select-none",
 						"first:rounded-l-input last:rounded-r-input",
-						"hover:border-border-input-hover",
-						"data-[active]:z-10 data-[active]:border-foreground data-[active]:ring-1 data-[active]:ring-foreground/20"
+						"hover:z-[5] hover:border-border-input-hover",
+						"data-[active]:z-10 data-[active]:border-foreground data-[active]:hover:border-foreground"
 					)}
 				>
 					{#if cell.char !== null}

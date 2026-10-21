@@ -151,7 +151,7 @@
 			</aside>
 
 			<!-- Docs Main Content Area -->
-			<main class="py-8 px-4 sm:px-6 md:pl-0 md:pr-8 min-w-0 max-w-4xl">
+			<main class="pt-8 sm:pt-16 pb-24 px-4 sm:px-6 md:pl-0 md:pr-8 min-w-0 max-w-4xl">
 				{@render children()}
 			</main>
 		</div>
