@@ -11,7 +11,7 @@
 <PinInput bind:value={pin} maxlength={6} />`;
 </script>
 
-<div class="space-y-12">
+<div class="space-y-8">
 	<!-- Page Header -->
 	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
