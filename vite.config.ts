@@ -19,7 +19,10 @@ export default defineConfig({
 				fallback: '404.html',
 				precompress: false,
 				strict: true
-			})
+			}),
+			prerender: {
+				handleHttpError: 'warn'
+			}
 		})
 	]
 });

@@ -1,7 +1,21 @@
+import Sticker from "phosphor-svelte/lib/Sticker";
+import Compass from "phosphor-svelte/lib/Compass";
+import CodeBlock from "phosphor-svelte/lib/CodeBlock";
+import Link from "phosphor-svelte/lib/Link";
+import Resize from "phosphor-svelte/lib/Resize";
+import Palette from "phosphor-svelte/lib/Palette";
+import CalendarBlank from "phosphor-svelte/lib/CalendarBlank";
+import CirclesThreePlus from "phosphor-svelte/lib/CirclesThreePlus";
+import FigmaLogo from "phosphor-svelte/lib/FigmaLogo";
+import Swap from "phosphor-svelte/lib/Swap";
+import Robot from "phosphor-svelte/lib/Robot";
+
 export type NavItem = {
 	title: string;
 	href: string;
 	label?: string;
+	icon?: any;
+	external?: boolean;
 };
 
 export type NavSection = {
@@ -13,8 +27,17 @@ export const docsNavigation: NavSection[] = [
 	{
 		title: "Overview",
 		items: [
-			{ title: "Introduction", href: "/docs" },
-			{ title: "Styling", href: "/docs/styling" },
+			{ title: "Introduction", href: "/docs", icon: Sticker },
+			{ title: "Getting Started", href: "/docs/getting-started", icon: Compass },
+			{ title: "Child Snippet", href: "/docs/child-snippet", icon: CodeBlock },
+			{ title: "Ref", href: "/docs/ref", icon: Link },
+			{ title: "Transitions", href: "/docs/transitions", icon: Resize },
+			{ title: "Styling", href: "/docs/styling", icon: Palette },
+			{ title: "Dates", href: "/docs/dates", icon: CalendarBlank },
+			{ title: "State Management", href: "/docs/state-management", icon: CirclesThreePlus },
+			{ title: "Figma", href: "/docs/figma-file", icon: FigmaLogo },
+			{ title: "Migration Guide", href: "/docs/migration-guide", icon: Swap },
+			{ title: "LLMs", href: "/docs/llms", icon: Robot },
 		],
 	},
 	{
