@@ -21,26 +21,44 @@
 	{...restProps}
 >
 	{#snippet children({ cells })}
-		<div class="flex items-center rounded-input bg-background shadow-mini">
-			{#each cells as cell, i (i)}
-				<PinInputPrimitive.Cell
-					{cell}
-					class={cn(
-						"relative flex size-12 items-center justify-center -ml-px first:ml-0 border border-border-input bg-background text-base font-semibold transition-all outline-hidden select-none",
-						"first:rounded-l-input last:rounded-r-input",
-						"hover:z-[5] hover:border-border-input-hover",
-						"data-[active]:z-10 data-[active]:border-foreground data-[active]:hover:border-foreground"
-					)}
-				>
-					{#if cell.char !== null}
-						<span class="font-mono text-lg font-semibold text-foreground">{cell.char}</span>
-					{:else if cell.hasFakeCaret}
-						<div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-							<div class="h-6 w-[1.5px] bg-foreground animate-caret-blink rounded-full"></div>
-						</div>
-					{/if}
-				</PinInputPrimitive.Cell>
-			{/each}
-		</div>
+		{#if cells.length === 6}
+			<div class="flex items-center gap-5 sm:gap-6">
+				<div class="flex items-center gap-2 sm:gap-2.5">
+					{#each cells.slice(0, 3) as cell, i (i)}
+						{@render Cell(cell)}
+					{/each}
+				</div>
+				<div class="flex items-center gap-2 sm:gap-2.5">
+					{#each cells.slice(3, 6) as cell, i (i + 3)}
+						{@render Cell(cell)}
+					{/each}
+				</div>
+			</div>
+		{:else}
+			<div class="flex items-center gap-2 sm:gap-2.5">
+				{#each cells as cell, i (i)}
+					{@render Cell(cell)}
+				{/each}
+			</div>
+		{/if}
 	{/snippet}
 </PinInputPrimitive.Root>
+
+{#snippet Cell(cell: PinInputPrimitive.CellProps["cell"])}
+	<PinInputPrimitive.Cell
+		{cell}
+		class={cn(
+			"relative flex size-12 items-center justify-center rounded-input border border-border-input bg-background text-base font-semibold shadow-mini transition-all outline-hidden select-none",
+			"hover:border-border-input-hover",
+			"data-[active]:border-foreground data-[active]:ring-2 data-[active]:ring-foreground/15"
+		)}
+	>
+		{#if cell.char !== null}
+			<span class="font-mono text-xl font-semibold text-foreground">{cell.char}</span>
+		{:else if cell.hasFakeCaret}
+			<div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+				<div class="h-6 w-[1.5px] bg-foreground animate-caret-blink rounded-full"></div>
+			</div>
+		{/if}
+	</PinInputPrimitive.Cell>
+{/snippet}
