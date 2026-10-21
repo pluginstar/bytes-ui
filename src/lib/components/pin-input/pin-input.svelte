@@ -23,7 +23,7 @@
 	{#snippet children({ cells })}
 		{#if cells.length === 6}
 			<div class="flex items-center">
-				<div class="flex items-center gap-2 sm:gap-2.5">
+				<div class="flex items-center rounded-input bg-background shadow-mini">
 					{#each cells.slice(0, 3) as cell, i (i)}
 						{@render Cell(cell)}
 					{/each}
@@ -33,14 +33,14 @@
 					<div class="h-1 w-3 rounded-full bg-foreground/20"></div>
 				</div>
 
-				<div class="flex items-center gap-2 sm:gap-2.5">
+				<div class="flex items-center rounded-input bg-background shadow-mini">
 					{#each cells.slice(3, 6) as cell, i (i + 3)}
 						{@render Cell(cell)}
 					{/each}
 				</div>
 			</div>
 		{:else}
-			<div class="flex items-center gap-2 sm:gap-2.5">
+			<div class="flex items-center rounded-input bg-background shadow-mini">
 				{#each cells as cell, i (i)}
 					{@render Cell(cell)}
 				{/each}
@@ -53,9 +53,10 @@
 	<PinInputPrimitive.Cell
 		{cell}
 		class={cn(
-			"relative flex size-12 items-center justify-center rounded-input border border-border-input bg-background text-base font-semibold transition-all outline-hidden select-none",
-			"hover:border-border-input-hover",
-			"data-[active]:border-foreground data-[active]:ring-2 data-[active]:ring-foreground/15"
+			"relative flex size-12 items-center justify-center -ml-px first:ml-0 border border-border-input bg-background text-base font-semibold transition-all outline-hidden select-none",
+			"first:rounded-l-input last:rounded-r-input",
+			"hover:z-[5] hover:border-border-input-hover",
+			"data-[active]:z-10 data-[active]:border-foreground data-[active]:hover:border-foreground"
 		)}
 	>
 		{#if cell.char !== null}
