@@ -22,15 +22,11 @@
 >
 	{#snippet children({ cells })}
 		{#if cells.length === 6}
-			<div class="flex items-center">
+			<div class="flex items-center gap-3.5 sm:gap-4">
 				<div class="flex items-center rounded-input bg-background shadow-mini">
 					{#each cells.slice(0, 3) as cell, i (i)}
 						{@render Cell(cell)}
 					{/each}
-				</div>
-
-				<div class="flex w-8 sm:w-10 items-center justify-center">
-					<div class="h-1 w-3 rounded-full bg-foreground/20"></div>
 				</div>
 
 				<div class="flex items-center rounded-input bg-background shadow-mini">
