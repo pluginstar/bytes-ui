@@ -33,19 +33,17 @@
 
 <div class="space-y-12">
 	<!-- Page Header -->
-	<div class="space-y-3 pb-2 border-b border-border-card">
+	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
 			Date Range Picker
 		</h1>
-		<p class="text-foreground/50 mt-3 text-balance text-lg font-normal leading-7 tracking-[-0.01em] sm:text-[20px]">
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px] mb-8">
 			Combines start and end date inputs with a dual or single range calendar popover for easy date span selection.
 		</p>
 	</div>
 
 	<!-- Component Preview -->
-	<section class="space-y-4">
-		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
-		<ComponentPreview name="date-range-picker-demo" code={codeExample}>
+	<ComponentPreview name="date-range-picker-demo" code={codeExample}>
 			{#snippet preview()}
 				<DateRangePicker.Root weekdayFormat="short" fixedWeeks={true} class="grid w-full max-w-sm gap-2">
 					<DateRangePicker.Label class="text-sm font-medium text-foreground">Trip Dates</DateRangePicker.Label>
@@ -80,5 +78,4 @@
 				</DateRangePicker.Root>
 			{/snippet}
 		</ComponentPreview>
-	</section>
 </div>

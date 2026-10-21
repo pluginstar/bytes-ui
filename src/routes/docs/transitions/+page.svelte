@@ -1,51 +1,16 @@
-<script lang="ts">
-	import Copy from "phosphor-svelte/lib/Copy";
-	import CaretDown from "phosphor-svelte/lib/CaretDown";
-	import Check from "phosphor-svelte/lib/Check";
-
-	let copied = $state(false);
-
-	function copyPage() {
-		navigator.clipboard.writeText(window.location.href);
-		copied = true;
-		setTimeout(() => (copied = false), 2000);
-	}
-</script>
-
 <svelte:head>
 	<title>Transitions - Bits UI</title>
 </svelte:head>
 
 <div class="space-y-6">
-	<!-- Page Header matching Bits UI 1:1 -->
+	<!-- Page Header matching Bits UI 1:1 without Copy Page button -->
 	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
 			Transitions
 		</h1>
-		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px]">
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px] mb-8">
 			Learn how to use transitions with Bits UI components.
 		</p>
-
-		<!-- Copy Page Button & Dropdown matching Bits UI -->
-		<div class="pt-2 flex items-center">
-			<button
-				onclick={copyPage}
-				class="hover:bg-muted/50 text-foreground/70 hover:text-foreground inline-flex h-8 select-none items-center gap-1.5 rounded-md rounded-r-none border border-border-card border-r-0 px-3 py-1.5 text-xs font-semibold leading-none transition cursor-pointer"
-			>
-				<span>Copy Page</span>
-				{#if copied}
-					<Check class="size-3.5 text-green-500" />
-				{:else}
-					<Copy class="size-3.5" />
-				{/if}
-			</button>
-			<button
-				class="hover:bg-muted/50 text-foreground/70 hover:text-foreground inline-flex h-8 items-center justify-center rounded-md rounded-l-none border border-border-card px-2 py-1.5 text-xs transition cursor-pointer"
-				aria-label="More options"
-			>
-				<CaretDown class="size-3.5" />
-			</button>
-		</div>
 	</div>
 
 	<!-- Content matching screenshot 1:1 -->

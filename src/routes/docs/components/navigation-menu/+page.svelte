@@ -33,19 +33,17 @@
 
 <div class="space-y-12">
 	<!-- Page Header -->
-	<div class="space-y-3 pb-2 border-b border-border-card">
+	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
 			Navigation Menu
 		</h1>
-		<p class="text-foreground/50 mt-3 text-balance text-lg font-normal leading-7 tracking-[-0.01em] sm:text-[20px]">
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px] mb-8">
 			A collection of links and rich dropdown content for site-wide navigation with keyboard support.
 		</p>
 	</div>
 
 	<!-- Component Preview -->
-	<section class="space-y-4">
-		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
-		<ComponentPreview name="navigation-menu-demo" code={codeExample}>
+	<ComponentPreview name="navigation-menu-demo" code={codeExample}>
 			{#snippet preview()}
 				<NavigationMenu.Root>
 					<NavigationMenu.List>
@@ -98,5 +96,4 @@
 				</NavigationMenu.Root>
 			{/snippet}
 		</ComponentPreview>
-	</section>
 </div>

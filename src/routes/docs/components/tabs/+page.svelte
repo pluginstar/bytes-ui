@@ -21,19 +21,17 @@
 
 <div class="space-y-12">
 	<!-- Page Header -->
-	<div class="space-y-3 pb-2 border-b border-border-card">
+	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
 			Tabs
 		</h1>
-		<p class="text-foreground/50 mt-3 text-balance text-lg font-normal leading-7 tracking-[-0.01em] sm:text-[20px]">
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px] mb-8">
 			A set of layered sections of content—known as tab panels—that are displayed one at a time with smooth active highlights.
 		</p>
 	</div>
 
 	<!-- Component Preview -->
-	<section class="space-y-4">
-		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
-		<ComponentPreview name="tabs-demo" code={codeExample}>
+	<ComponentPreview name="tabs-demo" code={codeExample}>
 			{#snippet preview()}
 				<div class="w-full max-w-[420px]">
 					<Tabs.Root value="account">
@@ -85,5 +83,4 @@
 				</div>
 			{/snippet}
 		</ComponentPreview>
-	</section>
 </div>
