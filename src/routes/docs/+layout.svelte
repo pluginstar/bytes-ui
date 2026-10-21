@@ -96,11 +96,6 @@
 											class="flex items-center justify-between rounded-input px-3 py-1.5 text-sm transition-colors {isActive ? 'bg-muted text-foreground font-semibold' : 'text-foreground/70 hover:bg-muted/50 hover:text-foreground'}"
 										>
 											<span>{item.title}</span>
-											{#if item.label}
-												<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded-sm bg-accent text-accent-foreground">
-													{item.label}
-												</span>
-											{/if}
 										</a>
 									{/each}
 								</div>

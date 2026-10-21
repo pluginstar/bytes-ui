@@ -21,28 +21,6 @@
 		</p>
 	</section>
 
-	<!-- Section: Core Architecture Principles -->
-	<section class="space-y-6">
-		<h2 class="text-2xl font-semibold tracking-tight">Design Principles</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-			<div class="rounded-card border border-border-card p-6 bg-background shadow-mini space-y-2.5">
-				<div class="text-xl">📐</div>
-				<h3 class="font-semibold text-base">Concentric Radius</h3>
-				<p class="text-xs text-foreground-alt leading-relaxed">
-					Follows the golden mathematical formula: <code>Inner Radius = Outer Radius - Padding</code>. A single root <code>--radius</code> variable automatically computes and coordinates all component curves.
-				</p>
-			</div>
-
-			<div class="rounded-card border border-border-card p-6 bg-background shadow-mini space-y-2.5">
-				<div class="text-xl">📏</div>
-				<h3 class="font-semibold text-base">Strict Scale (1:1 Alignment)</h3>
-				<p class="text-xs text-foreground-alt leading-relaxed">
-					Buttons, inputs, and selects strictly share heights across scales: <code>sm</code> (36px), <code>default</code> (48px), and <code>lg</code> (56px) for zero-misalignment side-by-side layouts.
-				</p>
-			</div>
-		</div>
-	</section>
-
 	<!-- Section: Installation -->
 	<section class="space-y-4">
 		<h2 class="text-2xl font-semibold tracking-tight">Installation</h2>
