@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { Calendar, ComponentPreview } from "#lib";
-	import { today, getLocalTimeZone } from "@internationalized/date";
+	import { Calendar, ComponentPreview, today, getLocalTimeZone } from "#lib";
 
 	let date = $state(today(getLocalTimeZone()));
 
 	const codeExample = `<script lang="ts">
-  import { Calendar } from "bytes-ui";
-  import { today, getLocalTimeZone } from "@internationalized/date";
+  import { Calendar, today, getLocalTimeZone } from "bytes-ui";
 
   let date = $state(today(getLocalTimeZone()));
 <\/script>
@@ -14,7 +12,7 @@
 <Calendar bind:value={date} />`;
 </script>
 
-<div class="space-y-12">
+<div class="space-y-8">
 	<!-- Page Header -->
 	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">

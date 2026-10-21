@@ -2,14 +2,14 @@
 	import { Button } from "#lib";
 </script>
 
-<div class="space-y-12">
+<div class="space-y-8">
 	<!-- Page Header (bits-ui: doc-page-header 규격) -->
-	<div class="space-y-3 pb-2 border-b border-border-card">
+	<div class="space-y-3 pb-2">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
 			Introduction
 		</h1>
-		<p class="text-foreground/50 mt-3 text-balance text-lg font-normal leading-7 tracking-[-0.01em] sm:text-[20px]">
-			Elevating Bits UI official documentation styles into a production-ready component library. Built with mathematical concentric radius and strict scale consistency.
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px] mb-8">
+			Elevating Bits UI official documentation styles into a production-ready component library with concentric radius and strict scale consistency.
 		</p>
 	</div>
 

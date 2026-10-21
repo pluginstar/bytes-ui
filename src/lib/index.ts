@@ -45,3 +45,26 @@ export { TimeRangeField } from "./components/time-range-field/index.js";
 export { default as ComponentPreview } from "./components/docs/component-preview.svelte";
 export * from "./utils.js";
 export * from "./config/docs-nav.js";
+
+// Re-export internationalized date utilities for hassle-free date handling
+export {
+	CalendarDate,
+	CalendarDateTime,
+	ZonedDateTime,
+	Time,
+	parseDate,
+	parseDateTime,
+	parseZonedDateTime,
+	parseTime,
+	today,
+	now,
+	getLocalTimeZone,
+	isSameDay,
+	isSameMonth,
+	isSameYear,
+	startOfMonth,
+	endOfMonth,
+	startOfWeek,
+	endOfWeek,
+	type DateValue,
+} from "@internationalized/date";

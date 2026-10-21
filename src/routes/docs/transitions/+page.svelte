@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Transitions - Bits UI</title>
+	<title>Transitions - Bytes UI</title>
 </svelte:head>
 
 <div class="space-y-6">
