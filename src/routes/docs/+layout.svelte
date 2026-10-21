@@ -2,6 +2,7 @@
 	import { page } from "$app/state";
 	import { docsNavigation, ScrollArea } from "#lib";
 	import Search from "#lib/components/search.svelte";
+	import Logo from "#lib/components/icons/logo.svelte";
 
 	let { children } = $props();
 	let isDark = $state(false);
@@ -19,10 +20,10 @@
 
 <div class="min-h-screen bg-background text-foreground transition-colors font-sans antialiased">
 	<!-- Site Header (bits-ui: h-[70px] border-b sticky top-0 z-50 backdrop-blur-md) -->
-	<header class="sticky top-0 z-50 border-b border-border-card bg-background/80 backdrop-blur-md">
+	<header class="border-border bg-background/75 sticky top-0 z-50 overflow-x-hidden border-b backdrop-blur-md">
 		<div class="px-4">
 			<div class="flex h-[70px] items-center justify-between gap-3">
-				<!-- Left: Mobile nav toggle + Logo + Search -->
+				<!-- Left: Mobile nav toggle + 1:1 Pixel-Perfect Logo + Search -->
 				<div class="flex w-full items-center gap-1.5 md:w-auto">
 					<!-- Mobile menu button (visible only on mobile) -->
 					<button
@@ -40,16 +41,12 @@
 						</svg>
 					</button>
 
-					<!-- Logo: • bytes UI -->
+					<!-- 1:1 Bits UI Logo: • bits [UI] -->
 					<a
 						href="/"
-						class="focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:outline-hidden ml-1 sm:ml-2 rounded-md focus-visible:ring-2 focus-visible:ring-offset-2 md:mr-[100px] flex items-center"
+						class="focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:outline-hidden ml-2 rounded-md focus-visible:ring-2 focus-visible:ring-offset-2 md:mr-[125px] inline-flex items-center"
 					>
-						<div class="flex items-center gap-2 font-bold tracking-tight text-xl text-foreground select-none">
-							<span class="size-2 rounded-full bg-foreground inline-block"></span>
-							<span class="font-extrabold text-[22px] tracking-tight -mr-0.5">bytes</span>
-							<span class="border border-foreground/30 rounded-[5px] px-1 py-0.5 text-[10px] font-mono font-bold leading-none uppercase tracking-wider">UI</span>
-						</div>
+						<Logo class="h-[22px] w-auto" />
 					</a>
 
 					<!-- Search Docs Component with ⌘K -->
@@ -91,12 +88,12 @@
 
 	<!-- Mobile drawer if opened -->
 	{#if mobileMenuOpen}
-		<div class="fixed inset-x-0 bottom-0 top-[71px] z-40 bg-background/95 backdrop-blur-md md:hidden p-4 overflow-y-auto border-b border-border-card">
+		<div class="fixed inset-x-0 bottom-0 top-[71px] z-40 bg-background/95 backdrop-blur-md md:hidden p-4 overflow-y-auto border-b border-border">
 			<nav class="space-y-6 pb-20">
 				{#each docsNavigation as section}
 					<div class="space-y-2">
 						{#if section.title !== "Overview"}
-							<h4 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground px-2">
+							<h4 class="text-muted-foreground mb-1 ml-[9px] rounded-md px-2.5 py-2 pl-4 text-xs font-medium uppercase">
 								{section.title}
 							</h4>
 						{/if}
@@ -107,10 +104,10 @@
 								<a
 									href={item.href}
 									onclick={() => (mobileMenuOpen = false)}
-									class="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors {isActive ? 'bg-muted text-foreground font-semibold' : 'text-foreground/80 hover:bg-muted/50'}"
+									class="flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm font-semibold transition-colors {isActive ? 'bg-muted text-foreground' : 'text-foreground hover:bg-muted/50 bg-transparent'}"
 								>
 									{#if Icon}
-										<Icon size={20} class="shrink-0" />
+										<Icon size={22} class="shrink-0" />
 									{/if}
 									<span>{item.title}</span>
 								</a>
@@ -126,21 +123,21 @@
 	<div class="min-h-[calc(100vh-71px)]">
 		<div class="flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10">
 			<!-- Sidebar Nav with disappearing scrollbar & border-r -->
-			<aside class="border-border-card fixed top-[71px] hidden h-[calc(100vh-71px)] w-full shrink-0 border-r md:sticky md:block">
+			<aside class="border-border fixed top-[71px] hidden h-[calc(100vh-71px)] w-full shrink-0 border-r md:sticky md:block">
 				<ScrollArea class="h-full w-full" type="hover">
 					<div class="h-full pb-6 pr-4 pt-4 lg:pb-8">
 						<nav class="space-y-3">
 							<div class="flex w-full flex-col pb-[50px]">
 								{#each docsNavigation as section}
 									{#if section.title === "Overview"}
-										<!-- Overview items (with phosphor icons and soft active pill) -->
+										<!-- Overview items (with 1:1 phosphor icons and soft active pill) -->
 										<div class="grid grid-flow-row auto-rows-max gap-0.5 pb-8 pl-4 text-sm">
 											{#each section.items as item}
 												{@const Icon = item.icon}
 												{@const isActive = page.url.pathname === item.href || (item.href === "/docs" && page.url.pathname === "/docs/introduction")}
 												<a
 													href={item.href}
-													class="group flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 {isActive ? 'bg-muted text-foreground' : 'text-foreground hover:bg-muted/50 bg-transparent'}"
+													class="group flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 {isActive ? 'bg-muted text-foreground' : 'hover:bg-muted/50 bg-transparent text-foreground'}"
 													target={item.external ? "_blank" : undefined}
 													rel={item.external ? "noreferrer" : undefined}
 												>
@@ -154,7 +151,7 @@
 									{:else}
 										<!-- Components section (with uppercase heading and clean list) -->
 										<div class="pb-4">
-											<h4 class="text-muted-foreground mb-1 ml-[9px] rounded-md px-2.5 py-2 pl-4 text-xs font-medium uppercase tracking-wider">
+											<h4 class="text-muted-foreground mb-1 ml-[9px] rounded-md px-2.5 py-2 pl-4 text-xs font-medium uppercase">
 												{section.title}
 											</h4>
 											<div class="grid grid-flow-row auto-rows-max gap-[1px] pl-4 text-sm">
@@ -162,7 +159,7 @@
 													{@const isActive = page.url.pathname === item.href}
 													<a
 														href={item.href}
-														class="group inline-flex w-full items-center rounded-md px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 {isActive ? 'bg-muted text-foreground font-semibold' : 'text-foreground hover:bg-muted/50 bg-transparent'}"
+														class="group inline-flex w-full items-center rounded-md px-2.5 py-1.5 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 {isActive ? 'bg-muted text-foreground' : 'hover:bg-muted/50 text-foreground'}"
 													>
 														<span>{item.title}</span>
 													</a>

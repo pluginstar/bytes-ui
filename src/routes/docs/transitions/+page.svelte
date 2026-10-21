@@ -1,76 +1,95 @@
+<script lang="ts">
+	import Copy from "phosphor-svelte/lib/Copy";
+	import CaretDown from "phosphor-svelte/lib/CaretDown";
+	import Check from "phosphor-svelte/lib/Check";
+
+	let copied = $state(false);
+
+	function copyPage() {
+		navigator.clipboard.writeText(window.location.href);
+		copied = true;
+		setTimeout(() => (copied = false), 2000);
+	}
+</script>
+
 <svelte:head>
-	<title>Transitions - Bytes UI</title>
+	<title>Transitions - Bits UI</title>
 </svelte:head>
 
-<div class="space-y-8">
-	<!-- Page Header -->
-	<div class="space-y-3 border-b border-border-card pb-8">
-		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">Transitions</h1>
-		<p class="text-lg text-muted-foreground leading-relaxed">
-			Learn how to use transitions and animations with Bytes UI components in Svelte 5.
+<div class="space-y-6">
+	<!-- Page Header matching Bits UI 1:1 -->
+	<div class="space-y-3 pb-2">
+		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
+			Transitions
+		</h1>
+		<p class="text-foreground/40 mt-3 text-balance text-lg font-semibold leading-7 tracking-[-0.01em] sm:text-[21px]">
+			Learn how to use transitions with Bits UI components.
 		</p>
+
+		<!-- Copy Page Button & Dropdown matching Bits UI -->
+		<div class="pt-2 flex items-center">
+			<button
+				onclick={copyPage}
+				class="hover:bg-muted/50 text-foreground/70 hover:text-foreground inline-flex h-8 select-none items-center gap-1.5 rounded-md rounded-r-none border border-border-card border-r-0 px-3 py-1.5 text-xs font-semibold leading-none transition cursor-pointer"
+			>
+				<span>Copy Page</span>
+				{#if copied}
+					<Check class="size-3.5 text-green-500" />
+				{:else}
+					<Copy class="size-3.5" />
+				{/if}
+			</button>
+			<button
+				class="hover:bg-muted/50 text-foreground/70 hover:text-foreground inline-flex h-8 items-center justify-center rounded-md rounded-l-none border border-border-card px-2 py-1.5 text-xs transition cursor-pointer"
+				aria-label="More options"
+			>
+				<CaretDown class="size-3.5" />
+			</button>
+		</div>
 	</div>
 
-	<!-- Content -->
-	<div class="prose max-w-none space-y-6 text-foreground/90 leading-relaxed">
+	<!-- Content matching screenshot 1:1 -->
+	<div class="space-y-5 text-foreground leading-relaxed text-[15px]">
 		<p>
-			Svelte Transitions are one of the most powerful features of Svelte. They allow you to easily animate elements entering and leaving the DOM. In Bytes UI, components are designed to work seamlessly with Svelte's native transition directives (<code class="bg-muted px-1.5 py-0.5 rounded text-sm">transition:</code>, <code class="bg-muted px-1.5 py-0.5 rounded text-sm">in:</code>, <code class="bg-muted px-1.5 py-0.5 rounded text-sm">out:</code>) as well as modern CSS animation libraries like Tailwind CSS and tw-animate-css.
+			Svelte Transitions are one of the awesome features of Svelte. Unfortunately, they don't play very nicely with components, due to the fact that they rely on various directives like <code class="bg-muted px-1.5 py-0.5 rounded font-mono text-sm text-foreground">transition:</code>, which aren't supported by components.
 		</p>
 
-		<h2 class="text-2xl font-bold tracking-tight pt-4">The Defaults</h2>
 		<p>
-			By default, components like <code class="bg-muted px-1.5 py-0.5 rounded text-sm">Dialog</code>, <code class="bg-muted px-1.5 py-0.5 rounded text-sm">Popover</code>, <code class="bg-muted px-1.5 py-0.5 rounded text-sm">DropdownMenu</code>, and <code class="bg-muted px-1.5 py-0.5 rounded text-sm">Accordion</code> handle mounting and unmounting for you. They automatically wait for transitions to finish before removing elements from the DOM.
-		</p>
-		<p>
-			You can use any CSS transitions or animations with this approach, using utility classes like <code class="bg-muted px-1.5 py-0.5 rounded text-sm">data-[state=open]:animate-in</code> and <code class="bg-muted px-1.5 py-0.5 rounded text-sm">data-[state=closed]:animate-out</code>.
+			In previous version of Bits UI, we had a workaround for this by exposing a ton of <code class="bg-muted px-1.5 py-0.5 rounded font-mono text-sm">transition*</code> props on the components that we felt were most likely to be used with transitions. However, this was a bit of a hack and limited us to <em>only</em> Svelte Transitions, and users who wanted to use other libraries or just CSS were left out.
 		</p>
 
-		<h2 class="text-2xl font-bold tracking-tight pt-4">Force Mounting</h2>
 		<p>
-			On each conditionally rendered component, a <code class="bg-muted px-1.5 py-0.5 rounded text-sm">forceMount</code> prop is exposed. When set to <code class="bg-muted px-1.5 py-0.5 rounded text-sm">true</code>, the component remains in the DOM and delegates visibility control to you via the <code class="bg-muted px-1.5 py-0.5 rounded text-sm">child</code> snippet.
+			With Bits UI for Svelte 5, we've completely removed this workaround and instead exposed props and snippets that allow you to use any animation or transitions library you want.
 		</p>
 
-		<div class="rounded-xl border border-border-card bg-muted/40 p-5 font-mono text-xs overflow-x-auto">
+		<h2 class="text-2xl font-semibold tracking-tight pt-4 text-foreground">The Defaults</h2>
+		<p>
+			By default, Bits UI components handle the mounting and unmounting of specific components for you. They are wrapped in a component that ensures the component waits for transitions to finish before unmounting.
+		</p>
+
+		<h2 class="text-2xl font-semibold tracking-tight pt-4 text-foreground">Force Mounting</h2>
+		<p>
+			On each component that we conditionally render, a <code class="bg-muted px-1.5 py-0.5 rounded font-mono text-sm">forceMount</code> prop is exposed. If set to <code class="bg-muted px-1.5 py-0.5 rounded font-mono text-sm">true</code>, the component will be forced to mount in the DOM and become visible to the user.
+		</p>
+
+		<div class="rounded-xl border border-border-card bg-muted/40 p-4 font-mono text-xs overflow-x-auto leading-relaxed">
 <pre>{`<script lang="ts">
-  import { Dialog } from "bytes-ui";
+  import { Dialog } from "bits-ui";
   import { fly } from "svelte/transition";
 <\/script>
 
 <Dialog.Root>
-  <Dialog.Trigger>Open Dialog</Dialog.Trigger>
-  <Dialog.Portal>
-    <Dialog.Overlay />
-    <Dialog.Content forceMount>
-      {#snippet child({ props, open })}
-        {#if open}
-          <div {...props} transition:fly={{ y: 20, duration: 200 }}>
-            <Dialog.Title>Animated Dialog</Dialog.Title>
-            <Dialog.Close>Close</Dialog.Close>
-          </div>
-        {/if}
-      {/snippet}
-    </Dialog.Content>
-  </Dialog.Portal>
-</Dialog.Root>`}</pre>
-		</div>
-
-		<h2 class="text-2xl font-bold tracking-tight pt-4">Floating Content Components</h2>
-		<p>
-			Components positioned using Floating UI (such as <code class="bg-muted px-1.5 py-0.5 rounded text-sm">Popover.Content</code>, <code class="bg-muted px-1.5 py-0.5 rounded text-sm">Tooltip.Content</code>, and <code class="bg-muted px-1.5 py-0.5 rounded text-sm">DropdownMenu.Content</code>) provide an additional <code class="bg-muted px-1.5 py-0.5 rounded text-sm">wrapperProps</code> in their snippet arguments:
-		</p>
-
-		<div class="rounded-xl border border-border-card bg-muted/40 p-5 font-mono text-xs overflow-x-auto">
-<pre>{`<Popover.Content forceMount>
-  {#snippet child({ wrapperProps, props, open })}
-    {#if open}
-      <div {...wrapperProps}>
-        <div {...props} transition:fly={{ y: 10, duration: 150 }}>
-          Popover content goes here!
+  <!-- ... -->
+  <Dialog.Content forceMount>
+    {#snippet child({ props, open })}
+      {#if open}
+        <div {...props} transition:fly>
+          <!-- ... -->
         </div>
-      </div>
-    {/if}
-  {/snippet}
-</Popover.Content>`}</pre>
+      {/if}
+    {/snippet}
+  </Dialog.Content>
+</Dialog.Root>`}</pre>
 		</div>
 	</div>
 </div>

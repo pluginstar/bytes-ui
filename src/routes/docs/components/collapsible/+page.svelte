@@ -1,28 +1,58 @@
 <script lang="ts">
-	import { Collapsible, Button, ComponentPreview } from "#lib";
+	import { Collapsible, ComponentPreview } from "#lib";
 
 	let open = $state(false);
 
 	const codeExample = `<script lang="ts">
-  import { Collapsible, Button } from "bytes-ui";
-  let open = $state(false);
+  import { Collapsible } from "bits-ui";
+  import CaretUpDown from "phosphor-svelte/lib/CaretUpDown";
 <\/script>
 
-<Collapsible.Root bind:open class="w-[300px]">
-  <div class="flex items-center justify-between">
-    <h4>Recent Starred Repos</h4>
-    <Collapsible.Trigger>
-      {#snippet child({ props })}
-        <Button variant="outline" size="sm" {...props}>
-          {open ? "Close" : "Open"}
-        </Button>
-      {/snippet}
+<Collapsible.Root class="w-[327px] space-y-3">
+  <div class="flex items-center justify-between space-x-10">
+    <h4 class="text-[15px] font-medium">@huntabyte starred 3 repositories</h4>
+    <Collapsible.Trigger
+      class="rounded-9px border-border-input bg-background-alt text-foreground shadow-btn hover:bg-muted inline-flex h-10 w-10 items-center justify-center border transition-all active:scale-[0.98]"
+      aria-label="Show starred repositories"
+    >
+      <CaretUpDown class="size-4" weight="bold" />
     </Collapsible.Trigger>
   </div>
-  <Collapsible.Content class="space-y-2 pt-2">
-    <div class="p-2 rounded-input bg-muted">@huntabyte/bits-ui</div>
+
+  <Collapsible.Content
+    class="data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up space-y-2 overflow-hidden font-mono text-[15px] tracking-[0.01em]"
+  >
+    <div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3">
+      @huntabyte/bits-ui
+    </div>
+    <div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3">
+      @huntabyte/shadcn-svelte
+    </div>
+    <div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3">
+      @svecosystem/runed
+    </div>
   </Collapsible.Content>
 </Collapsible.Root>`;
+
+	const cssExample = `@import "tailwindcss";
+
+@keyframes -global-collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--bits-collapsible-content-height);
+  }
+}
+
+@keyframes -global-collapsible-up {
+  from {
+    height: var(--bits-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}`;
 </script>
 
 <div class="space-y-12">
@@ -39,33 +69,35 @@
 	<!-- Component Preview -->
 	<section class="space-y-4">
 		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
-		<ComponentPreview name="collapsible-demo" code={codeExample}>
+		<ComponentPreview name="collapsible-demo" code={codeExample} css={cssExample}>
 			{#snippet preview()}
-				<div class="w-full max-w-[340px]">
+				<div class="w-[327px] space-y-3">
 					<Collapsible.Root bind:open class="space-y-3">
-						<div class="flex items-center justify-between">
-							<span class="text-sm font-semibold">@huntabyte starred 3 repositories</span>
-							<Collapsible.Trigger>
-								{#snippet child({ props }: { props: Record<string, any> })}
-									<Button variant="outline" size="sm" class="size-8 p-0" {...props}>
-										<svg class="size-4 transition-transform duration-200 {open ? 'rotate-180' : ''}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-										</svg>
-									</Button>
-								{/snippet}
+						<div class="flex items-center justify-between space-x-10">
+							<h4 class="text-[15px] font-medium">@huntabyte starred 3 repositories</h4>
+							<Collapsible.Trigger
+								class="rounded-9px border-border-input bg-background-alt text-foreground shadow-btn hover:bg-muted inline-flex h-10 w-10 items-center justify-center border transition-all active:scale-[0.98] cursor-pointer"
+								aria-label="Show starred repositories"
+							>
+								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-4">
+									<rect width="256" height="256" fill="none" />
+									<path d="M184.49,167.51a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-48-48a12,12,0,0,1,17-17L128,207l39.51-39.52A12,12,0,0,1,184.49,167.51Zm-96-79L128,49l39.51,39.52a12,12,0,0,0,17-17l-48-48a12,12,0,0,0-17,0l-48,48a12,12,0,0,0,17,17Z" />
+								</svg>
 							</Collapsible.Trigger>
 						</div>
 
-						<div class="rounded-input border border-border-card bg-background px-4 py-2.5 text-xs font-mono">
-							huntabyte/bits-ui
+						<div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3 text-[15px] font-mono">
+							@huntabyte/bits-ui
 						</div>
 
-						<Collapsible.Content class="space-y-2">
-							<div class="rounded-input border border-border-card bg-background px-4 py-2.5 text-xs font-mono">
-								huntabyte/shadcn-svelte
+						<Collapsible.Content
+							class="data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up space-y-2 overflow-hidden font-mono text-[15px] tracking-[0.01em]"
+						>
+							<div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3">
+								@huntabyte/shadcn-svelte
 							</div>
-							<div class="rounded-input border border-border-card bg-background px-4 py-2.5 text-xs font-mono">
-								svecosystem/runed
+							<div class="rounded-9px bg-muted inline-flex h-12 w-full items-center px-[18px] py-3">
+								@svecosystem/runed
 							</div>
 						</Collapsible.Content>
 					</Collapsible.Root>
