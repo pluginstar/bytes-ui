@@ -29,9 +29,11 @@
 		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
 		<ComponentPreview name="date-field-demo" code={codeExample}>
 			{#snippet preview()}
-				<DateField.Root class="grid w-full max-w-xs gap-2">
-					<DateField.Label class="text-sm font-medium text-foreground">Event Date</DateField.Label>
-					<DateField.Input />
+				<DateField.Root>
+					<div class="grid w-full max-w-xs gap-2">
+						<DateField.Label class="text-sm font-medium text-foreground">Event Date</DateField.Label>
+						<DateField.Input />
+					</div>
 				</DateField.Root>
 			{/snippet}
 		</ComponentPreview>

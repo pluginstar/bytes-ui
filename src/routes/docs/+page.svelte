@@ -88,12 +88,12 @@
 		<h2 class="text-lg font-semibold tracking-tight">Next Steps</h2>
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			<a
-				href="/docs/tokens"
+				href="/docs/styling"
 				class="rounded-card border border-border-card p-5 transition hover:bg-muted/50 hover:border-border-input flex flex-col justify-between"
 			>
 				<div>
-					<h3 class="font-semibold text-sm">Concentric Tokens &rarr;</h3>
-					<p class="text-xs text-muted-foreground mt-1">Explore the mathematical radius scale and live tuner.</p>
+					<h3 class="font-semibold text-sm">Styling &rarr;</h3>
+					<p class="text-xs text-muted-foreground mt-1">Learn how to style components and customize radius tokens.</p>
 				</div>
 			</a>
 			<a

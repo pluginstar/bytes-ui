@@ -29,9 +29,11 @@
 		<h2 class="text-2xl font-semibold tracking-tight">Preview</h2>
 		<ComponentPreview name="time-field-demo" code={codeExample}>
 			{#snippet preview()}
-				<TimeField.Root class="grid w-full max-w-xs gap-2">
-					<TimeField.Label class="text-sm font-medium text-foreground">Meeting Time</TimeField.Label>
-					<TimeField.Input />
+				<TimeField.Root>
+					<div class="grid w-full max-w-xs gap-2">
+						<TimeField.Label class="text-sm font-medium text-foreground">Meeting Time</TimeField.Label>
+						<TimeField.Input />
+					</div>
 				</TimeField.Root>
 			{/snippet}
 		</ComponentPreview>

@@ -15,9 +15,9 @@
             <div class="text-sm font-semibold">Introduction</div>
             <p class="text-xs text-muted-foreground mt-1">Concentric design tokens & atomic headless architecture.</p>
           </NavigationMenu.Link>
-          <NavigationMenu.Link href="/docs/tokens">
-            <div class="text-sm font-semibold">Tokens</div>
-            <p class="text-xs text-muted-foreground mt-1">Learn how mathematical inner radius derivations work.</p>
+          <NavigationMenu.Link href="/docs/styling">
+            <div class="text-sm font-semibold">Styling</div>
+            <p class="text-xs text-muted-foreground mt-1">Learn how to style components and customize radius tokens.</p>
           </NavigationMenu.Link>
         </div>
       </NavigationMenu.Content>
@@ -59,10 +59,10 @@
 											Concentric design tokens & atomic headless architecture.
 										</p>
 									</NavigationMenu.Link>
-									<NavigationMenu.Link href="/docs/tokens">
-										<div class="text-sm font-semibold">Concentric Tokens</div>
+									<NavigationMenu.Link href="/docs/styling">
+										<div class="text-sm font-semibold">Styling</div>
 										<p class="text-xs text-muted-foreground mt-1">
-											Learn how mathematical inner radius derivations work.
+											Learn how to style components and customize radius tokens.
 										</p>
 									</NavigationMenu.Link>
 								</div>

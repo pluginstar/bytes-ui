@@ -10,10 +10,10 @@
 	<!-- Page Header -->
 	<div class="space-y-3 pb-2 border-b border-border-card">
 		<h1 class="scroll-m-20 text-4xl font-semibold tracking-[-0.02em] sm:text-5xl text-foreground">
-			Concentric Tokens
+			Styling
 		</h1>
 		<p class="text-foreground/50 mt-3 text-balance text-lg font-normal leading-7 tracking-[-0.01em] sm:text-[20px]">
-			Mathematical coordination of corner radii, strict interactive component heights, and zero-margin architectural discipline.
+			Learn how to style Bytes UI components using Tailwind CSS, CSS variables, and concentric radius tokens.
 		</p>
 	</div>
 

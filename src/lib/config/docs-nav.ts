@@ -14,7 +14,7 @@ export const docsNavigation: NavSection[] = [
 		title: "Overview",
 		items: [
 			{ title: "Introduction", href: "/docs" },
-			{ title: "Concentric Tokens", href: "/docs/tokens", label: "Core" },
+			{ title: "Styling", href: "/docs/styling" },
 		],
 	},
 	{
