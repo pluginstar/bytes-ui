@@ -13,37 +13,38 @@
 <div class="min-h-screen bg-background text-foreground transition-colors font-sans antialiased">
 	<!-- Site Header (bits-ui: h-[70px] border-b sticky top-0 z-50 backdrop-blur-md) -->
 	<header class="border-border bg-background/75 sticky top-0 z-50 overflow-x-hidden border-b backdrop-blur-md">
-		<div class="px-4">
-			<div class="flex h-[70px] items-center justify-between gap-3">
-				<!-- Left: Mobile nav toggle + 1:1 Pixel-Perfect Logo + Search -->
-				<div class="flex w-full items-center gap-1.5 md:w-auto">
-					<!-- Mobile menu button (visible only on mobile) -->
-					<button
-						type="button"
-						onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
-						class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground md:hidden mr-1 cursor-pointer"
-						aria-label="Toggle menu"
-					>
-						<svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							{#if mobileMenuOpen}
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-							{:else}
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-							{/if}
-						</svg>
-					</button>
+		<div class="flex h-[70px] items-center justify-between pr-4">
+			<!-- Left: Mobile nav toggle + Logo (aligned with sidebar width: 220px on md, 250px on lg) -->
+			<div class="flex items-center pl-4 md:w-[220px] lg:w-[250px] shrink-0">
+				<!-- Mobile menu button (visible only on mobile) -->
+				<button
+					type="button"
+					onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
+					class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground md:hidden mr-1 cursor-pointer"
+					aria-label="Toggle menu"
+				>
+					<svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						{#if mobileMenuOpen}
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						{:else}
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+						{/if}
+					</svg>
+				</button>
 
-					<!-- 1:1 Bits UI Logo: • bits [UI] -->
-					<a
-						href="/"
-						class="focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:outline-hidden ml-2 rounded-md focus-visible:ring-2 focus-visible:ring-offset-2 md:mr-[125px] inline-flex items-center"
-					>
-						<Logo class="h-[22px] w-auto" />
-					</a>
+				<!-- Logo -->
+				<a
+					href="/"
+					class="focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:outline-hidden rounded-md focus-visible:ring-2 focus-visible:ring-offset-2 inline-flex items-center"
+				>
+					<Logo class="h-[22px] w-auto" />
+				</a>
+			</div>
 
-					<!-- Search Docs Component with ⌘K -->
-					<Search />
-				</div>
+			<!-- Center/Right: Search aligned exactly with the sidebar vertical line + Actions -->
+			<div class="flex flex-1 items-center justify-between gap-3">
+				<!-- Search Docs Component with ⌘K -->
+				<Search />
 
 				<!-- Right: External links and Theme Switch matching Bits UI 1:1 -->
 				<div class="flex items-center justify-end">
